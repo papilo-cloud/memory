@@ -1,9 +1,20 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useTasks } from '../hooks/useContext'
-
 export const Menu = () => {
-    const {myGrid, myGrid1} = useTasks()
-  
+    const {myGrid, myGrid1, setTheme, grid} = useTasks()
+    // const [gameState, setGameState] = useState()
+    const [gameState, setGameState] = useState('numbers')
+    const [gameGrid, setGameGrid] = useState(4)
+    const [gamePlayers, setGamePlayers] = useState([1,2,3,4])
+  function handleStart() {
+    if (gameGrid == 4) {
+        myGrid()
+    } else {
+        myGrid1()
+    }
+    setTheme(gameState)
+    grid.selectRandom.length = 0
+  }
   return (
     <div className='menu'>
         <h2>memory</h2>
@@ -11,28 +22,25 @@ export const Menu = () => {
             <div className="box">
                 <p>Select Theme</p>
                 <div className="butn">
-                    <button>Numbers</button>
-                    <button>Icons</button>
-                </div>
+                    <button onClick={() => setGameState('numbers')} className={gameState == 'numbers' ? 'active': ''}>Numbers</button>
+                    <button onClick={() => setGameState('icons')} className={gameState == 'icons' ? 'active': ''}>Icons</button>
+                </div> 
             </div>
             <div className="box">
                 <p>Number of Players</p>
                 <div className="butn">
-                    <button>1</button>
-                    <button>2</button>
-                    <button>3</button>
-                    <button>4</button>
+                    {gamePlayers.map((numb, i) => <button key={i} className={gamePlayers == 1? 'active': ''} >{numb}</button> )}
                 </div>
             </div>
-            <div className="box">
+            <div className="box box3">
                 <p>Grid Size</p>
                 <div className="butn">
-                    <button onClick={() => myGrid(Number(4))}>4x4</button>
-                    <button onClick={() => myGrid1(Number(6))}>6x6</button>
+                    <button className={gameGrid == 4 ? 'active': ''} onClick={() => setGameGrid(4)}>4x4</button>
+                    <button className={gameGrid == 6 ? 'active': ''} onClick={() => setGameGrid(6)}>6x6</button>
                 </div>
             </div>
             <div className="box">
-                <button className='start'>Start Game</button>
+                <button onClick={handleStart} className='start now noww'>Start Game</button>
             </div>
         </div>
     </div>

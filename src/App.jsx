@@ -6,15 +6,10 @@ import { Modal } from './components/modal/Modal';
 
 
 function App() {
-
-  const [grid, setGrid] = useState([])
-  const [selectRandom, setSelectRandom] = useState([])
-
-
   return (
       <ProviderContext >
-        <Menu useGrid={useGrid} />
-        <Game selectRandom={selectRandom} />
+        <Menu />
+        <Game />
         <Modal />
       </ProviderContext>
   )

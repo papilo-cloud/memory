@@ -124,6 +124,9 @@ button{
   font-weight: var(--font-weight-nm);
 }
 
+.menu .cont .butn .active{
+  background-color: #152938;
+}
 /* 
   Modal Styling
  */
@@ -274,6 +277,11 @@ button{
   width: 50%;
   height: 50%;
   text-align: center;
+ }
+ .cell .back p{
+  font-size: 1.4em;
+  font-weight: 600;
+  color: var(--color-snow);
  }
 @media screen and (min-width: 740px) {
   h2{

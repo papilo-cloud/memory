@@ -1,39 +1,74 @@
-    type actionProps = 
-    | {type: 'added', text: string, id: number, done: boolean}
-    | {type: 'deleted', id: number}
-
-
-// function setReducer(tasks: typeof initialTasks, action:actionProps) {
-//     switch (action.type) {
-//         case 'added':
-//             return[...tasks,
-//                 {done: false,
-//                 id: action.id,
-//                 text: action.text}
-//             ];
-//         case 'deleted':
-//             return tasks.filter(task => task.id != action.id)
+import data from '../data/data.json'
+export const INITIALGAME = {
+    data: [],
+    selectRandom: [],
+    theme: 'number',
     
-//         default:
-//             throw Error('No Type Found');
-//     }
-// }
-// function handleAddTask(text: string) {
-//     dispatch({
-//         type: 'added',
-//         id: nextId++,
-//         text: text,
-//         done: false
-//     })    
-// }
-//     function deleteTask(id:number) {
-//         dispatch({
-//             type: 'deleted',
-//             id: id,
-//         })
-//     }
-
-
-//     const [tasks, dispatch] = useReducer(setReducer, initialTasks)
+} 
+function setReducer(state, action) {
+switch (action.type) {
+    case '4x4':{
+        // return state.map(dat => {return{...dat, data: action.datas}})
+        return {
+            ...state, 
+            data: action.datas
+        }
+    }
+    case '6x6': {
+        return {
+            ...state, 
+            data: action.datas
+        }
+    }    
+    case 'isFlipped': { 
+        
+        return{
+            ...state,
+            data: state.data.map(dats => {
+                if (dats.number == action.data.number) {
+                    return{...dats, flipped: true}
+                } else {
+                    return dats
+                }
+            }),
+        selectRandom: [...state.selectRandom, action.data]
+    }
+    }
+    case 'isMatched': { 
+        return{
+            ...state,
+            data: state.data.map(dats => {
+                if (dats.number == action.data.number) {
+                    return{...dats, matched: true}
+                } else {
+                    return dats
+                }
+            }),
+    }
+    }
+    case 'dismissMatch': {
+        return {
+            ...state,
+            data: state.data.map(dats => {
+                    return{...dats, matched: false}
+          
+            }),
+        }
+    }
+    case 'dismissFlip': {
+        return {
+            ...state,
+            data: state.data.map(dats => {
+                    return{...dats, flipped: false}
+          
+            }),
+        }
+    }
+    
+    default:
+        break;
+}
+}
+export default setReducer
 
 
