@@ -29,7 +29,7 @@ function ProviderContext({children}) {
         })
     }
     const onFlipped = (data) => {
-        if (data.matched) {
+        if (data.flipped) {
             return
         }
         dispatch({

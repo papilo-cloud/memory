@@ -2,12 +2,13 @@ import React, { useEffect, useMemo, useState } from "react"
 // import { Cell } from "./Cell";
 // import { Footer } from "./Footer";
 import { useTasks } from "../hooks/useContext";
+import { Cards } from "./Cards";
+import { Footer } from "./Footer/Footer";
    
 export const Game= () => {
  
-    const [correcrGuess, setCorrecrGuess] = useState(true)
     // const [grid, setGrid] = useState<GridProps[]>([])
-    const {grid, onFlipped,onMatched,myGrid, myGrid1, theme, dismissRandom, handleMatch} = useTasks()
+    const {grid,onMatched, dismissRandom, handleMatch} = useTasks()
     //   let matrix = [], row;
 //     for (let r = 0; r < rows; r++) {
 //         row = [];
@@ -17,6 +18,7 @@ export const Game= () => {
 //         matrix.push(row)
 //     }
 const playable = grid.selectRandom.length == 2
+
 useEffect(() => {
  if (playable) {
     if (grid.selectRandom[0].name === grid.selectRandom[1].name) {
@@ -30,40 +32,14 @@ useEffect(() => {
     }
  }
 }, [grid.selectRandom])
-function  isFlipCard(params) {
-    if (!playable) {
-        onFlipped(params)
-    }
-}
+
   
 console.log(grid.selectRandom)
 console.log(grid?.data)
   return (
     <div className="grid">
-        <div className="cells"
-        style={{
-            gridTemplateColumns: grid.gridSize === '4x4' ? 'repeat(4, 1fr)' : 'repeat(6, 1fr)',
-            gridTemplateRows: grid.gridSize === '4x4' ? 'repeat(4, 1fr)' : 'repeat(6, 1fr)',
-        }}>
-            {grid.data.map((dat, x) => <div onClick={() => {isFlipCard(dat)}} className={
-                dat.flipped || dat.matched ? "flipped cell": " cell"
-                }
-                
-                 key={x}>
-                <div className="flip-card">
-                    <div className="flipped front"></div>
-                    <div className={dat.matched? "flipped back": " back"}
-                    style={{
-                        backgroundColor: dat.matched ? '#bcced9': ''
-                    }}>
-                        {
-                            theme == 'icons' ? <img src={dat.imgUrl} alt={dat.name} />: <p>{dat.numb}</p>
-                        }
-                    </div>
-                </div>
-            </div> )}
-        </div>
-        {/* <Footer gameState={gameState} /> */}
+        <Cards playable={playable} />
+        <Footer />
     </div>
 
   )
