@@ -4,6 +4,7 @@ import React, { useEffect, useMemo, useState } from "react"
 import { useTasks } from "../hooks/useContext";
 import { Cards } from "./Cards";
 import { Footer } from "./Footer/Footer";
+import { Header } from "./Header/Header";
    
 export const Game= () => {
  
@@ -38,6 +39,7 @@ console.log(grid.selectRandom)
 console.log(grid?.data)
   return (
     <div className="grid">
+        <Header />
         <Cards playable={playable} />
         <Footer />
     </div>
