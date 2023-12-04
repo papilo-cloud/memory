@@ -4,10 +4,10 @@ import React, { useEffect, useMemo, useState } from "react"
 import { useTasks } from "../hooks/useContext";
    
 export const Game= () => {
-
+ 
     const [correcrGuess, setCorrecrGuess] = useState(true)
     // const [grid, setGrid] = useState<GridProps[]>([])
-    const {grid, onFlipped,onMatched, theme, handleFlip, handleMatch} = useTasks()
+    const {grid, onFlipped,onMatched, theme, dismissRandom, handleMatch} = useTasks()
     //   let matrix = [], row;
 //     for (let r = 0; r < rows; r++) {
 //         row = [];
@@ -16,34 +16,35 @@ export const Game= () => {
 //         }
 //         matrix.push(row)
 //     }
-const playable = grid.selectRandom.length !== 2
+const playable = grid.selectRandom.length == 2
 useEffect(() => {
-  if (!playable) {
-    setTimeout(() => {
-        if (grid?.selectRandom[0]?.name == grid?.selectRandom[1]?.name) {
-            grid.selectRandom.length = 0
-            // handleFlip()
-            onMatched()
-        } else {
-            handleFlip()
-            // alert('matched')
-            grid.selectRandom.length = 0
-        }
-    }, 1000);
-  }
+ if (playable) {
+    if (grid.selectRandom[0].name === grid.selectRandom[1].name) {
+        onMatched(grid.selectRandom[0])
+        dismissRandom()
+    } else {
+        setTimeout(() => {
+            dismissRandom()
+            handleMatch()
+        }, 1000);
+    }
+ }
 }, [grid.selectRandom])
 function  isFlipCard(params) {
-    if (playable) {
+    if (!playable) {
         onFlipped(params)
     }
 }
   
-console.log(grid.selectRandom.length)
-console.log(grid.data)
+console.log(grid.selectRandom)
+console.log(grid?.data)
   return (
     <div className="grid">
         <div className="cells">
-            {grid.data.map((dat, x) => <div onClick={() => {isFlipCard(dat)}} className={dat.flipped || dat.matched? "flipped cell": " cell"} key={x}>
+            {grid.data.map((dat, x) => <div onClick={() => {isFlipCard(dat)}} className={
+                dat.flipped || dat.matched ? "flipped cell": " cell"
+                }
+                 key={x}>
                 <div className="flip-card">
                     <div className="flipped front"></div>
                     <div className={dat.flipped? "flipped back": " back"}>

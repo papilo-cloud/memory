@@ -34,21 +34,11 @@ function ProviderContext({children}) {
             dat: gameShape.push(data)
         })
     }
-    // function onMatched(data) {
-    //     if (data.flipped) {
-    //         return
-    //     }
-    //     dispatch({
-    //         type: 'isMatched',
-    //         data: data
-    //     })
-    // }
-
+    
     const onFlipped = (data) => {
-        if (data.flipped) {
+        if (data.matched) {
             return
         }
-        onMatched(data)
         dispatch({
             type: 'isFlipped',
             data: data
@@ -56,21 +46,25 @@ function ProviderContext({children}) {
        
     }
     const onMatched = (data) => {
-       
         dispatch({
             type: 'isMatched',
             data: data
         })
        
     }
-    const handleFlip = () => {
+    const dismissRandom = () => {
        dispatch({
-        type: 'dismissFlip'
+        type: 'dismissRandom'
        })
     }
     const handleMatch = () => {
         dispatch({
          type: 'dismissMatch'
+        })
+     }
+     function  newGame() {
+        dispatch({
+            type: 'newGame'
         })
      }
    
@@ -81,11 +75,12 @@ function ProviderContext({children}) {
                 myGrid,
                 myGrid1,
                 onFlipped,
-                onMatched,
                 theme,
                 setTheme,
-                handleFlip,
-                handleMatch
+                onMatched,
+                dismissRandom,
+                handleMatch,
+                newGame
             }
         } >
             {children}
