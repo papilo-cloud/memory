@@ -6,7 +6,8 @@ export const INITIALGAME = {
     moves: 0,
     stopFlip: false,
     gameWon: 0,
-    gridSize: '4x4'
+    gridSize: '4x4',
+    timeElapsed: 0
 } 
 function setReducer(state, action) {
 switch (action.type) {

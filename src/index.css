@@ -66,7 +66,7 @@ button{
   padding: 0;
   box-sizing: border-box;
   background-color: var(--color-snow);
-  font-family: sans-serif;
+  font-family:'Atkinson Hyperlegible', sans-serif;
 }
 .menu{
   position: relative;
@@ -207,6 +207,12 @@ button{
   background-color: var(--color-dark-tangerine);
   color: var(--color-white-smoke);
  }
+ /* .game{
+  position: relative;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+ } */
  .grid{
   position: relative;
   width: 100%;
@@ -216,6 +222,7 @@ button{
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 30px;
  }
  .cells{
   padding: 15px;
@@ -262,16 +269,9 @@ button{
   backface-visibility: hidden;
  }
   .cell .back{
-  background-color: #fda214;
+  background-color: var(--color-dark-tangerine);
   transform: rotateY(180deg);
  } 
- /*
-   .flipped .back{
-  transform: rotateY(0);
- }
-  .flipped .front{
-  transform: rotateY(180deg);
- } */
  .cell .back img{
   width: 50%;
   height: 50%;
@@ -282,6 +282,47 @@ button{
   font-weight: 600;
   color: var(--color-snow);
  }
+
+ /*
+ #################################################################
+ ###########################################################
+ footer 
+  */
+  .footer, .footer .time{
+    position: relative;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .footer .time{
+    padding: 15px;
+  }
+  .footer .time-cont{
+    display: flex;
+    width: 100%;
+    gap: 10px;
+  }
+  .footer .time-cont .box{
+    position: relative;
+    padding: 14px;
+    width: 100%;
+    background-color: var(--color-pattens-blue);
+    color: var(--color-tangaroa);
+    border-radius: 8px;
+    text-align: center;
+  }
+  .footer .time-cont .box p{
+    color: var(--color-shakespeare);
+    font-weight: var(--font-weight-nm);
+    line-height: 22px;
+  }
+  .time-cont .box h2{
+    font-weight: 900;
+  }
 @media screen and (min-width: 425px) {
   .cells{
     height: 400px;
@@ -316,5 +357,8 @@ button{
   .cells{
     width: 500px;
     height: 500px;
+  }
+  .footer .time{
+    width: 500px;
   }
 }
