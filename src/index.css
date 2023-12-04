@@ -345,6 +345,12 @@ button{
   .footer .double-cont .active p{
     color: var(--color-snow);
   }
+
+  /* 
+  #############################################################################3
+  ##########################################################################
+  Header
+   */
   .header{
     position: relative;
     width: 100%;
@@ -363,7 +369,6 @@ button{
     padding-top: 30px;
     justify-content: space-between;
     align-items: center;
-    perspective: 1000px;
   }
   .logo p{
     color: var(--color-tangaroa);
@@ -388,7 +393,6 @@ button{
     z-index: 1;
     padding: 20px;
     border-radius: 20px;
-    transform-style: preserve-3d;
   }
 @media screen and (min-width: 425px) {
   .cells{
@@ -405,13 +409,12 @@ button{
     background-color: #152938;
     right: 20px;
     top: 90px;
-    /* display: none; */
+    z-index: 1;
     transform: scale(0);
     transform-origin:100% 0;
     transition: all .5s;
   }
   .logo .open{
-    /* display: flex; */
     transform: scale(1);
   }
 }
