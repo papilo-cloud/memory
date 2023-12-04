@@ -25,15 +25,12 @@ export const Game= () => {
     }
     }, [grid.selectRandom])
     
-    console.log(grid.selectRandom)
-    console.log(grid?.data)
     return (
         <div className="grid">
             <Header />
             <Cards playable={playable} />
             <Footer />
         </div>
-
     )
 }
 
