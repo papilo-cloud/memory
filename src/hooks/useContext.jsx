@@ -65,6 +65,22 @@ function ProviderContext({children}) {
             type: 'restart'
         })
      }
+     const setTime = () => {
+        let sec = 0
+        let min = 0
+        setTimeout(() => {
+            sec++
+            if (sec == 60) {
+                sec = 0
+                min += 1
+            } else {
+                
+            }
+        }, 1000);
+        dispatch({
+            type: 'timePassed'
+        })
+     }
    
     return (
         <TaskContext.Provider value={

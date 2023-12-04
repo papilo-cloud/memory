@@ -8,7 +8,10 @@ export const INITIALGAME = {
     stopFlip: false,
     gameWon: 0,
     gridSize: '4x4',
-    timeElapsed: 0
+    timeElapsed: {
+        min: 0,
+        sec: 0
+    }
 } 
 function setReducer(state, action) {
 switch (action.type) {
@@ -77,6 +80,9 @@ switch (action.type) {
                 return{...dats, matched: false, flipped: false}
         }))
         }
+    }
+    case 'timePassed': {
+        
     }
     case 'newGame': {
         return {
