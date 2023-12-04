@@ -6,9 +6,9 @@ import { Modal } from './components/modal/Modal';
 function App() {
   return (
       <ProviderContext >
-        <Menu />
+        {/* <Menu /> */}
         <Game />
-        <Modal />
+        {/* <Modal /> */}
       </ProviderContext>
   )
 }
