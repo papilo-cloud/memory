@@ -58,6 +58,7 @@ button{
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  font-family:'Atkinson Hyperlegible', sans-serif;
 }
  body{
   position: relative;
@@ -87,7 +88,6 @@ button{
 .menu .cont{
   position: relative;
   width: 100%;
-  /* height: 500px; */
   background-color: var(--color-snow);
   border-radius: 14px;
   padding: 22px;
@@ -111,6 +111,7 @@ button{
 .cont .box p{
   font-size: var(--font-size-mob-p);
   font-weight: var(--font-weight-nm);
+  color: var(--color-shakespeare);
 }
 .box .butn{
   position: relative;
@@ -121,13 +122,16 @@ button{
 }
 .menu .cont .start{
   background-color: var(--color-dark-tangerine);
-  font-weight: var(--font-weight-nm);
+  font-weight: var(--font-weight-md);
+  letter-spacing: 1px;
 }
 
 .menu .cont .butn .active{
-  background-color: #152938;
+  background-color: var(--color-arapawa);
 }
 /* 
+############################################################################
+##############################################################
   Modal Styling
  */
  .modal{
@@ -207,12 +211,6 @@ button{
   background-color: var(--color-dark-tangerine);
   color: var(--color-white-smoke);
  }
- /* .game{
-  position: relative;
-  width: 100%;
-  margin: 0;
-  padding: 0;
- } */
  .grid{
   position: relative;
   width: 100%;
@@ -230,7 +228,7 @@ button{
   display: grid;
   width: 100%;
   height: 340px;
-  gap: 15px;
+  gap: 8px;
   flex-wrap: wrap;
   
  }
@@ -304,7 +302,7 @@ button{
   .footer .time-cont{
     display: flex;
     width: 100%;
-    gap: 10px;
+    gap: 30px;
   }
   .footer .time-cont .box{
     position: relative;
@@ -318,7 +316,7 @@ button{
   .footer .time-cont .box p{
     color: var(--color-shakespeare);
     font-weight: var(--font-weight-nm);
-    line-height: 22px;
+    margin-bottom: 5px;
   }
   .time-cont .box h2{
     font-weight: 900;
@@ -357,8 +355,17 @@ button{
   .cells{
     width: 500px;
     height: 500px;
+    gap: 16px;
   }
   .footer .time{
     width: 500px;
+  }
+  .footer .time-cont .box{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .footer .time-cont .box p{
+    margin-bottom: 0;
   }
 }

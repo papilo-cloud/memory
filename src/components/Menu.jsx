@@ -40,7 +40,7 @@ export const Menu = () => {
                 </div>
             </div>
             <div className="box">
-                <button onClick={handleStart} className='start now noww'>Start Game</button>
+                <button onClick={handleStart} className='start'>Start Game</button>
             </div>
         </div>
     </div>
