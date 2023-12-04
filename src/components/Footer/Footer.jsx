@@ -5,8 +5,8 @@ import { DoublePlayer } from './DoublePlayer'
 export const Footer = () => {
   return (
     <div className='footer'>
-        {/* <SinglePlayer /> */}
-        <DoublePlayer />
+        <SinglePlayer />
+        {/* <DoublePlayer /> */}
     </div>
   )
 }

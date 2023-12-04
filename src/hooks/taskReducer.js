@@ -1,3 +1,4 @@
+import { shuffle } from 'lodash'
 import data from '../data/data.json'
 export const INITIALGAME = {
     data: [],
@@ -7,12 +8,14 @@ export const INITIALGAME = {
     stopFlip: false,
     gameWon: 0,
     gridSize: '4x4',
-    timeElapsed: 0
+    timeElapsed: {
+        min: 0,
+        sec: 0
+    }
 } 
 function setReducer(state, action) {
 switch (action.type) {
     case '4x4':{
-        // return state.map(dat => {return{...dat, data: action.datas}})
         return {
             ...state, 
             data: action.datas,
@@ -36,11 +39,10 @@ switch (action.type) {
                     return dats
                 }
             }),
-            selectRandom: [...state.selectRandom,  action.data]
+            selectRandom: [...state.selectRandom,  action.data],
+            moves: state.moves++
         }
-        // selectRandom: [...state.selectRandom, action.data]
     }
-    
     case 'isMatched': { 
         return{
             ...state,
@@ -65,6 +67,30 @@ switch (action.type) {
         return {
             ...state,
             selectRandom: [],
+        }
+    }
+    case 'restart': {
+        return{
+            ...state,
+            selectRandom: [],
+            moves: 0,
+            timeElapsed: 0,
+            gameWon: 0,
+            data: shuffle(state.data.map(dats => {
+                return{...dats, matched: false, flipped: false}
+        }))
+        }
+    }
+    case 'timePassed': {
+        
+    }
+    case 'newGame': {
+        return {
+            ...state,
+            selectRandom: [],
+            moves: 0,
+            gameWon: 0,
+            timeElapsed: 0
         }
     }
     

@@ -22,7 +22,7 @@
   --font-size-mob-h1: 3rem;
   --font-size-mob-h2: 1.5rem;
   --font-size-mob-h3: 1.1rem;
-  --font-size-mob-button: 1.2rem;
+  --font-size-mob-button: 1rem;
   --font-size-mob-p: 1rem;
 
   /* Tablet */
@@ -345,12 +345,84 @@ button{
   .footer .double-cont .active p{
     color: var(--color-snow);
   }
+
+  /* 
+  #############################################################################3
+  ##########################################################################
+  Header
+   */
+  .header{
+    position: relative;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+  }
+  .header .logo{
+    position: relative;
+    width: min(1000px, 100%);
+    display: flex;
+    padding: 20px;
+    padding-top: 30px;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .logo p{
+    color: var(--color-tangaroa);
+    font-weight: var(--font-weight-md);
+    font-size: var(--font-size-dsk-p);
+  }
+  .logo button{
+    padding: 12px 26px;
+    font-size: var(--font-size-mob-button);
+    font-weight: var(--font-weight-nm);
+    border-radius: 46px;
+    background-color: #fda214;
+    color: var(--color-snow);
+  }
+  .logo button:nth-last-child(1){
+    color: var(--color-arapawa);
+    background-color: var(--color-pattens-blue);
+  }
+  .logo .open-menu{
+    display: flex;
+    gap: 14px;
+    z-index: 1;
+    padding: 20px;
+    border-radius: 20px;
+  }
 @media screen and (min-width: 425px) {
   .cells{
     height: 400px;
   }
 }
+@media screen and (max-width: 740px) {
+  .footer .single-cont .box .desk{
+    display: none;
+  }
+  .logo .open-menu{
+    position: fixed;
+    flex-direction: column;
+    background-color: #152938;
+    right: 20px;
+    top: 90px;
+    z-index: 1;
+    transform: scale(0);
+    transform-origin:100% 0;
+    transition: all .5s;
+  }
+
+  .logo .open{
+    transform: scale(1);
+  }
+}
 @media screen and (min-width: 740px) {
+  .logo .button1{
+    display: none;
+  }
   h2{
     font-size: var(--font-size-tab-h2);
     font-weight: var(--font-weight-md);
@@ -394,5 +466,8 @@ button{
   }
   .footer .single-cont .box p{
     margin-bottom: 0;
+  }
+  .footer .single-cont .box .mob{
+    display: none;
   }
 }

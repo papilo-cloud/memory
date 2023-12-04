@@ -60,6 +60,27 @@ function ProviderContext({children}) {
             type: 'newGame'
         })
      }
+     const handleRestart = () => {
+        dispatch({
+            type: 'restart'
+        })
+     }
+     const setTime = () => {
+        let sec = 0
+        let min = 0
+        setTimeout(() => {
+            sec++
+            if (sec == 60) {
+                sec = 0
+                min += 1
+            } else {
+                
+            }
+        }, 1000);
+        dispatch({
+            type: 'timePassed'
+        })
+     }
    
     return (
         <TaskContext.Provider value={
@@ -73,6 +94,7 @@ function ProviderContext({children}) {
                 onMatched,
                 dismissRandom,
                 handleMatch,
+                handleRestart,
                 newGame
             }
         } >
