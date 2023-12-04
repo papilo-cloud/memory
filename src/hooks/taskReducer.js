@@ -78,6 +78,15 @@ switch (action.type) {
         }))
         }
     }
+    case 'newGame': {
+        return {
+            ...state,
+            selectRandom: [],
+            moves: 0,
+            gameWon: 0,
+            timeElapsed: 0
+        }
+    }
     
     default:
         break;

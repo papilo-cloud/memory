@@ -6,7 +6,7 @@ import { Cards } from "./Cards";
 import { Footer } from "./Footer/Footer";
 import { Header } from "./Header/Header";
    
-export const Game= () => {
+export const Game= ({setGame}) => {
 
      const {grid,onMatched, dismissRandom, handleMatch} = useTasks()
     const playable = grid.selectRandom.length == 2
@@ -27,7 +27,7 @@ export const Game= () => {
     
     return (
         <div className="grid">
-            <Header />
+            <Header setGame={setGame} />
             <Cards playable={playable} />
             <Footer />
         </div>

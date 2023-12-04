@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { useTasks } from '../../hooks/useContext'
 
-export const Header = () => {
+export const Header = ({setGame}) => {
     const [show, setShow] = useState(false)
     const {handleRestart} = useTasks()
     const menuRef = useRef(!null)
@@ -31,7 +31,7 @@ export const Header = () => {
                 {
                     <div className={show ? 'open-menu open': 'open-menu'}>
                         <button onClick={() => handleRestart()}>Restart</button>
-                        <button>New Game</button>
+                        <button onClick={() => setGame(true)}>New Game</button>
                     </div>
                 }
             </div>
