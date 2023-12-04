@@ -414,6 +414,7 @@ button{
     transform-origin:100% 0;
     transition: all .5s;
   }
+
   .logo .open{
     transform: scale(1);
   }
