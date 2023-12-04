@@ -60,6 +60,11 @@ function ProviderContext({children}) {
             type: 'newGame'
         })
      }
+     const handleRestart = () => {
+        dispatch({
+            type: 'restart'
+        })
+     }
    
     return (
         <TaskContext.Provider value={
@@ -73,6 +78,7 @@ function ProviderContext({children}) {
                 onMatched,
                 dismissRandom,
                 handleMatch,
+                handleRestart,
                 newGame
             }
         } >

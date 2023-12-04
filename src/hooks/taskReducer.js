@@ -1,3 +1,4 @@
+import { shuffle } from 'lodash'
 import data from '../data/data.json'
 export const INITIALGAME = {
     data: [],
@@ -38,9 +39,7 @@ switch (action.type) {
             }),
             selectRandom: [...state.selectRandom,  action.data]
         }
-        // selectRandom: [...state.selectRandom, action.data]
     }
-    
     case 'isMatched': { 
         return{
             ...state,
@@ -65,6 +64,18 @@ switch (action.type) {
         return {
             ...state,
             selectRandom: [],
+        }
+    }
+    case 'restart': {
+        return{
+            ...state,
+            selectRandom: [],
+            moves: 0,
+            timeElapsed: 0,
+            gameWon: 0,
+            data: shuffle(state.data.map(dats => {
+                return{...dats, matched: false, flipped: false}
+        }))
         }
     }
     

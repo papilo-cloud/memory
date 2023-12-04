@@ -7,43 +7,33 @@ import { Footer } from "./Footer/Footer";
 import { Header } from "./Header/Header";
    
 export const Game= () => {
- 
-    // const [grid, setGrid] = useState<GridProps[]>([])
-    const {grid,onMatched, dismissRandom, handleMatch} = useTasks()
-    //   let matrix = [], row;
-//     for (let r = 0; r < rows; r++) {
-//         row = [];
-//         for (let c = 0; c < columns; c++) {
-//             row.push(`${r}${c}`)
-//         }
-//         matrix.push(row)
-//     }
-const playable = grid.selectRandom.length == 2
 
-useEffect(() => {
- if (playable) {
-    if (grid.selectRandom[0].name === grid.selectRandom[1].name) {
-        onMatched(grid.selectRandom[0])
-        dismissRandom()
-    } else {
-        setTimeout(() => {
+     const {grid,onMatched, dismissRandom, handleMatch} = useTasks()
+    const playable = grid.selectRandom.length == 2
+
+    useEffect(() => {
+    if (playable) {
+        if (grid.selectRandom[0].name === grid.selectRandom[1].name) {
+            onMatched(grid.selectRandom[0])
             dismissRandom()
-            handleMatch()
-        }, 1000);
+        } else {
+            setTimeout(() => {
+                dismissRandom()
+                handleMatch()
+            }, 1000);
+        }
     }
- }
-}, [grid.selectRandom])
+    }, [grid.selectRandom])
+    
+    console.log(grid.selectRandom)
+    console.log(grid?.data)
+    return (
+        <div className="grid">
+            <Header />
+            <Cards playable={playable} />
+            <Footer />
+        </div>
 
-  
-console.log(grid.selectRandom)
-console.log(grid?.data)
-  return (
-    <div className="grid">
-        <Header />
-        <Cards playable={playable} />
-        <Footer />
-    </div>
-
-  )
+    )
 }
 
