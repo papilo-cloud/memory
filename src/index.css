@@ -211,6 +211,11 @@ button{
   background-color: var(--color-dark-tangerine);
   color: var(--color-white-smoke);
  }
+ /* 
+ #################################################################################3
+ ########################################################################
+ Game Component Styling
+  */
  .grid{
   position: relative;
   width: 100%;
@@ -223,7 +228,7 @@ button{
   gap: 30px;
  }
  .cells{
-  padding: 15px;
+  padding: 20px;
   box-sizing: border-box;
   display: grid;
   width: 100%;
@@ -286,7 +291,7 @@ button{
  ###########################################################
  footer 
   */
-  .footer, .footer .time{
+  .footer, .footer .single{
     position: relative;
     width: 100%;
     margin: 0;
@@ -296,15 +301,18 @@ button{
     justify-content: center;
     align-items: center;
   }
-  .footer .time{
-    padding: 15px;
+  .footer .single{
+    padding: 20px;
   }
-  .footer .time-cont{
+  .footer .single-cont{
     display: flex;
     width: 100%;
     gap: 30px;
   }
-  .footer .time-cont .box{
+  .footer .double-cont{
+    gap: 20px;
+  }
+  .footer .single-cont .box{
     position: relative;
     padding: 14px;
     width: 100%;
@@ -313,13 +321,29 @@ button{
     border-radius: 8px;
     text-align: center;
   }
-  .footer .time-cont .box p{
+  .footer .single-cont .box p{
     color: var(--color-shakespeare);
     font-weight: var(--font-weight-nm);
     margin-bottom: 5px;
   }
-  .time-cont .box h2{
+  .single-cont .box h2{
     font-weight: 900;
+  }
+  .double-cont .active::after{
+    position: absolute;content: '';
+    width: 20px;
+    height: 20px;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%) rotate(45deg);
+    background-color: var(--color-dark-tangerine);
+  }
+  .footer .double .active{
+    background-color: var(--color-dark-tangerine);
+    color: var(--color-snow);
+  }
+  .footer .double-cont .active p{
+    color: var(--color-snow);
   }
 @media screen and (min-width: 425px) {
   .cells{
@@ -357,15 +381,18 @@ button{
     height: 500px;
     gap: 16px;
   }
-  .footer .time{
+  .footer .single{
     width: 500px;
   }
-  .footer .time-cont .box{
+  .footer .double{
+    width: min(1000px, 100%);
+  }
+  .footer .single-cont .box{
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
-  .footer .time-cont .box p{
+  .footer .single-cont .box p{
     margin-bottom: 0;
   }
 }

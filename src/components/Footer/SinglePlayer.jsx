@@ -2,8 +2,8 @@ import React from 'react'
 
 export const SinglePlayer = () => {
   return (
-    <div className='time'>
-        <div className="time-cont">
+    <div className='single'>
+        <div className="single-cont">
             <div className="box">
                 <p>Time</p>
                 <h2>0:38</h2>
