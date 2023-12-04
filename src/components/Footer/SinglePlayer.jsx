@@ -1,6 +1,9 @@
 import React from 'react'
+import { useTasks } from '../../hooks/useContext'
 
 export const SinglePlayer = () => {
+  const {grid} = useTasks();
+  
   return (
     <div className='single'>
         <div className="single-cont">
@@ -10,7 +13,7 @@ export const SinglePlayer = () => {
             </div>
             <div className="box">
                 <p>Moves</p>
-                <h2>29</h2>
+                <h2>{grid.moves}</h2>
             </div>
         </div>
     </div>

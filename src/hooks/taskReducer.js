@@ -13,7 +13,6 @@ export const INITIALGAME = {
 function setReducer(state, action) {
 switch (action.type) {
     case '4x4':{
-        // return state.map(dat => {return{...dat, data: action.datas}})
         return {
             ...state, 
             data: action.datas,
@@ -37,7 +36,8 @@ switch (action.type) {
                     return dats
                 }
             }),
-            selectRandom: [...state.selectRandom,  action.data]
+            selectRandom: [...state.selectRandom,  action.data],
+            moves: state.moves++
         }
     }
     case 'isMatched': { 
