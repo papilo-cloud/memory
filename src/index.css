@@ -5,7 +5,7 @@
   --color-arapawa: #304859;
   --color-tangaroa: #152938;
   --color-white-smoke: #f2f2f2;
-  --color-bermuda-grey: #7191a5;
+  --color-bermuda-grey: #7191a5; 
   --color-shakespeare: #6395b8;
   --color-pattens-blue: #dfe7ec;
   --color-snow: #fcfcfc;
@@ -212,26 +212,25 @@ button{
   width: 100%;
   margin: 0;
   padding: 0;
- }
- .cells{
-  background-color: #fda214;
-  padding: 20px;
-  box-sizing: border-box;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+ }
+ .cells{
+  padding: 15px;
+  box-sizing: border-box;
+  display: grid;
   width: 100%;
-  height: 440px;
-  gap: 10px;
+  height: 340px;
+  gap: 15px;
   flex-wrap: wrap;
   
  }
  .cell{
   position: relative;
-  width: 100px;
-  height: 100px;
-  width: 20%;
-  height: 20%;
+  width: 100%;
+  height: 100%;
   display: inline-block;
   border-radius: 50%;
   perspective: 1000px;
@@ -263,7 +262,7 @@ button{
   backface-visibility: hidden;
  }
   .cell .back{
-  background-color: #7191a5;
+  background-color: #fda214;
   transform: rotateY(180deg);
  } 
  /*
@@ -279,10 +278,15 @@ button{
   text-align: center;
  }
  .cell .back p{
-  font-size: 1.4em;
+  font-size: 2em;
   font-weight: 600;
   color: var(--color-snow);
  }
+@media screen and (min-width: 425px) {
+  .cells{
+    height: 400px;
+  }
+}
 @media screen and (min-width: 740px) {
   h2{
     font-size: var(--font-size-tab-h2);
@@ -308,5 +312,9 @@ button{
   }
   .btn{
     flex-direction: row;
+  }
+  .cells{
+    width: 500px;
+    height: 500px;
   }
 }

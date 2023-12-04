@@ -28,13 +28,6 @@ function ProviderContext({children}) {
             datas:shuffle( data[0])
         })
     }
-    function myNum() {
-        dispatch({
-            type: 'isMatched',
-            dat: gameShape.push(data)
-        })
-    }
-    
     const onFlipped = (data) => {
         if (data.matched) {
             return
@@ -59,7 +52,7 @@ function ProviderContext({children}) {
     }
     const handleMatch = () => {
         dispatch({
-         type: 'dismissMatch'
+         type: 'dismissFlip'
         })
      }
      function  newGame() {

@@ -7,7 +7,7 @@ export const Game= () => {
  
     const [correcrGuess, setCorrecrGuess] = useState(true)
     // const [grid, setGrid] = useState<GridProps[]>([])
-    const {grid, onFlipped,onMatched, theme, dismissRandom, handleMatch} = useTasks()
+    const {grid, onFlipped,onMatched,myGrid, myGrid1, theme, dismissRandom, handleMatch} = useTasks()
     //   let matrix = [], row;
 //     for (let r = 0; r < rows; r++) {
 //         row = [];
@@ -40,14 +40,22 @@ console.log(grid.selectRandom)
 console.log(grid?.data)
   return (
     <div className="grid">
-        <div className="cells">
+        <div className="cells"
+        style={{
+            gridTemplateColumns: grid.gridSize === '4x4' ? 'repeat(4, 1fr)' : 'repeat(6, 1fr)',
+            gridTemplateRows: grid.gridSize === '4x4' ? 'repeat(4, 1fr)' : 'repeat(6, 1fr)',
+        }}>
             {grid.data.map((dat, x) => <div onClick={() => {isFlipCard(dat)}} className={
                 dat.flipped || dat.matched ? "flipped cell": " cell"
                 }
+                
                  key={x}>
                 <div className="flip-card">
                     <div className="flipped front"></div>
-                    <div className={dat.flipped? "flipped back": " back"}>
+                    <div className={dat.matched? "flipped back": " back"}
+                    style={{
+                        backgroundColor: dat.matched ? '#bcced9': ''
+                    }}>
                         {
                             theme == 'icons' ? <img src={dat.imgUrl} alt={dat.name} />: <p>{dat.numb}</p>
                         }
