@@ -10,7 +10,7 @@ import { Modal } from "./modal/Modal";
 export const Game= ({setGame}) => {
 
      const {grid,onMatched, dismissRandom, handleMatch} = useTasks()
-    const playable = grid.selectRandom.length == 2
+    const playable = grid?.selectRandom?.length == 2
 
     useEffect(() => {
     if (playable) {

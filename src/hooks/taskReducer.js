@@ -88,24 +88,24 @@ switch (action.type) {
     //         ...state,
     //     }
     // }
-    case 'timePassed': {
-        return{
-            ...state,
-            timeElapsed: {sec:setInterval(() => {
-                state.timeElapsed.sec++
-                if (state.timeElapsed.sec == 60) {
-                    state.timeElapsed.sec = 0
-                }
-            }, 1000), min: state.timeElapsed.sec += 2}
-            // setInterval(() => {
-            //     {sec: state.timeElapsed.sec++}
-            //     if (state.timeElapsed.sec == 60) {
-            //         state.timeElapsed.min++
-            //         state.timeElapsed
-            //     }
-            // }, interval)
-        }
-    }
+    // case 'timePassed': {
+    //     return{
+    //         ...state,
+    //         timeElapsed: {sec:setInterval(() => {
+    //             state.timeElapsed.sec++
+    //             if (state.timeElapsed.sec == 60) {
+    //                 state.timeElapsed.sec = 0
+    //             }
+    //         }, 1000), min: state.timeElapsed.sec += 2}
+    //         // setInterval(() => {
+    //         //     {sec: state.timeElapsed.sec++}
+    //         //     if (state.timeElapsed.sec == 60) {
+    //         //         state.timeElapsed.min++
+    //         //         state.timeElapsed
+    //         //     }
+    //         // }, interval)
+    //     }
+    // }
     case 'newGame': {
         return {
             ...state,

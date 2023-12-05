@@ -64,21 +64,21 @@ function ProviderContext({children}) {
             type: 'restart'
         })
      }
-     const setTime = () => {
-        let sec = 10
-        let min = 0
-        setInterval(() => {
-            sec++
-            if (sec == 60) {
-                sec = 0
-                min += 1
-            }
-        }, 1000);
-        dispatch({
-            type: 'timePassed',
-            time: {sec, min}
-        })
-     }
+    //  const setTime = () => {
+    //     let sec = 10
+    //     let min = 0
+    //     setInterval(() => {
+    //         sec++
+    //         if (sec == 60) {
+    //             sec = 0
+    //             min += 1
+    //         }
+    //     }, 1000);
+    //     dispatch({
+    //         type: 'timePassed',
+    //         time: {sec, min}
+    //     })
+    //  }
     //  const gameEnd = () => {
     //     dispatch({
     //         type: 'isFinished'
@@ -99,7 +99,7 @@ function ProviderContext({children}) {
                 handleMatch,
                 handleRestart,
                 newGame,
-                setTime,
+                // setTime,
                 // gameEnd
             }
         } >

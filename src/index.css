@@ -87,7 +87,7 @@ button{
 }
 .menu .cont{
   position: relative;
-  width: 100%;
+  width: min(400px,100%);
   background-color: var(--color-snow);
   border-radius: 14px;
   padding: 22px;
@@ -142,11 +142,11 @@ button{
   left: 0;
   top: 0;
   z-index: 1000;
-  min-height: 100%;
+  min-height: 100vh;
   margin: 0;
   overflow: auto;
   padding: 20px;
-  background-color: var(--color-snow);
+  background-color: rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -154,7 +154,7 @@ button{
  }
  .modal .end-cont{
   position: relative;
-  width: min(375px, 100%);
+  width: min(400px, 100%);
   margin: 0;
   padding: 20px;
   background-color: var(--color-white-smoke);
@@ -170,7 +170,7 @@ button{
  }
  .end-cont .txt h2{
   color: var(--color-tangaroa);
-  margin-bottom: 20px;
+  margin-bottom: 10px;
  }
  .end-cont .txt p{
   color: var(--color-shakespeare);
@@ -189,7 +189,7 @@ button{
   align-items: center;
   background-color: var(--color-pattens-blue);
   border-radius: 8px;
-  padding: 18px;
+  padding: 12px 18px;
  }
  .mesg .time p{
   font-weight: 600;
@@ -206,7 +206,7 @@ button{
   gap: 18px;
  }
  .btn button{
-  padding: 18px;
+  padding: 10px;
   color: var(--color-arapawa);
   font-size: var(--font-size-mob-button);
   background-color: var(--color-pattens-blue);
@@ -372,7 +372,6 @@ button{
     width: min(1000px, 100%);
     display: flex;
     padding: 20px;
-    padding-top: 30px;
     justify-content: space-between;
     align-items: center;
   }
@@ -402,6 +401,7 @@ button{
   }
 @media screen and (min-width: 425px) {
   .cells{
+    width: 400px;
     height: 400px;
   }
 }
@@ -431,7 +431,7 @@ button{
   }
   h2{
     font-size: var(--font-size-tab-h2);
-    font-weight: var(--font-weight-md);
+    font-weight: 900;
 }
   h3{
     font-size: var(--font-size-tab-h3);
@@ -442,7 +442,7 @@ button{
   }
     
   .box .butn{
-    gap: 35px;
+    gap: 30px;
   }
   .menu .cont .start{
     padding: 22px;
@@ -451,9 +451,12 @@ button{
     flex-direction: row;
   }
   .cells{
-    width: 500px;
-    height: 500px;
-    gap: 16px;
+    width: 440px;
+    height: 440px;
+    gap: 12px;
+  }
+  .cells{
+    gap: 7px;
   }
   .footer .single{
     width: 500px;
@@ -476,8 +479,12 @@ button{
 }
 @media screen and (min-width: 1100px) {
   .menu .cont, .modal .end-cont{
-    width: 700px;
+    width: 600px;
     padding: 48px;
-    gap: 38px;
+    padding-top: 30px;
+    gap: 34px;
+  }
+  .modal .end-cont{
+    width: 500px;
   }
 }

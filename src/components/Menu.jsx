@@ -17,10 +17,10 @@ export const Menu = () => {
     setTheme(gameState)
     setGame(false)
     newGame()
-    setTime()
-    grid.selectRandom.length = 0
+    // setTime()
+    // grid.selectRandom.length = 0
   }
-  console.log(grid.timeElapsed.sec)
+//   console.log(grid.timeElapsed.sec)
   return (
     <div>
     {
