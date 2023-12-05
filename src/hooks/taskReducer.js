@@ -8,10 +8,8 @@ export const INITIALGAME = {
     gameFinish: false,
     gameWon: 0,
     gridSize: '4x4',
-    timeElapsed: {
-        min: 0,
-        sec: 0
-    }
+    seconds: 0,
+    minutes: 0
 } 
 function setReducer(state, action) {
 switch (action.type) {
@@ -76,8 +74,9 @@ switch (action.type) {
             selectRandom: [],
             gameFinish: false,
             moves: 0,
-            timeElapsed: 0,
             gameWon: 0,
+            minutes: 0,
+            seconds: 0,
             data: shuffle(state.data.map(dats => {
                 return{...dats, matched: false, flipped: false}
         }))
@@ -88,24 +87,14 @@ switch (action.type) {
     //         ...state,
     //     }
     // }
-    // case 'timePassed': {
-    //     return{
-    //         ...state,
-    //         timeElapsed: {sec:setInterval(() => {
-    //             state.timeElapsed.sec++
-    //             if (state.timeElapsed.sec == 60) {
-    //                 state.timeElapsed.sec = 0
-    //             }
-    //         }, 1000), min: state.timeElapsed.sec += 2}
-    //         // setInterval(() => {
-    //         //     {sec: state.timeElapsed.sec++}
-    //         //     if (state.timeElapsed.sec == 60) {
-    //         //         state.timeElapsed.min++
-    //         //         state.timeElapsed
-    //         //     }
-    //         // }, interval)
-    //     }
-    // }
+    case 'timePassed': {
+        return{
+            ...state,
+            seconds: state.seconds == 60 ? 0 : state.seconds++,
+            minutes: state.minutes++
+        }
+        
+    }
     case 'newGame': {
         return {
             ...state,
@@ -113,6 +102,8 @@ switch (action.type) {
             gameFinish: false,
             moves: 0,
             gameWon: 0,
+            minutes: 0,
+            seconds: 0
             // timeElapsed: 0
         }
     }

@@ -2,6 +2,7 @@ import React, { createContext, useReducer, useContext, useState, useEffect } fro
 import data from "../data/data.json";
 import { shuffle } from "lodash";
 import setReducer, { INITIALGAME } from "./taskReducer";
+import useTime from "./useTime";
 
 
 const TaskContext = createContext({})
@@ -14,8 +15,9 @@ function ProviderContext({children}) {
     // const [grid, dispatch] = useReducer(setReducer ,[])
     const [grid, dispatch] = useReducer(setReducer ,INITIALGAME)
     const [theme, setTheme] = useState('numbers')
-    const [random, setRandom] = useState([])
-    let rand = []
+    const [seconds, setSeconds] = useState(0)
+    // const nam = useTime(false)
+  
     function myGrid() {
         dispatch({
             type: '4x4',
@@ -64,22 +66,13 @@ function ProviderContext({children}) {
             type: 'restart'
         })
      }
-    //  const setTime = () => {
-    //     let sec = 10
-    //     let min = 0
-    //     setInterval(() => {
-    //         sec++
-    //         if (sec == 60) {
-    //             sec = 0
-    //             min += 1
-    //         }
-    //     }, 1000);
-    //     dispatch({
-    //         type: 'timePassed',
-    //         time: {sec, min}
-    //     })
-    //  }
-    //  const gameEnd = () => {
+     const setTime = () => {
+    
+            dispatch({
+                type: 'timePassed',
+            })
+}
+ //  const gameEnd = () => {
     //     dispatch({
     //         type: 'isFinished'
     //     })
@@ -99,7 +92,7 @@ function ProviderContext({children}) {
                 handleMatch,
                 handleRestart,
                 newGame,
-                // setTime,
+                setTime,
                 // gameEnd
             }
         } >
