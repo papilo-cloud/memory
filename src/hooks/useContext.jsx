@@ -43,7 +43,6 @@ function ProviderContext({children}) {
             type: 'isMatched',
             data: data
         })
-       
     }
     const dismissRandom = () => {
        dispatch({
@@ -66,21 +65,25 @@ function ProviderContext({children}) {
         })
      }
      const setTime = () => {
-        let sec = 0
+        let sec = 10
         let min = 0
-        setTimeout(() => {
+        setInterval(() => {
             sec++
             if (sec == 60) {
                 sec = 0
                 min += 1
-            } else {
-                
             }
         }, 1000);
         dispatch({
-            type: 'timePassed'
+            type: 'timePassed',
+            time: {sec, min}
         })
      }
+    //  const gameEnd = () => {
+    //     dispatch({
+    //         type: 'isFinished'
+    //     })
+    //  }
    
     return (
         <TaskContext.Provider value={
@@ -95,7 +98,9 @@ function ProviderContext({children}) {
                 dismissRandom,
                 handleMatch,
                 handleRestart,
-                newGame
+                newGame,
+                setTime,
+                // gameEnd
             }
         } >
             {children}

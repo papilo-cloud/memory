@@ -7,9 +7,9 @@ export const SinglePlayer = () => {
   return (
     <div className='single'>
         <div className="single-cont">
-            <div className="box">
+            <div className="box active">
                 <p>Time</p>
-                <h2>0:38</h2>
+                <h2>0:{grid.timeElapsed.sec}</h2>
             </div>
             <div className="box">
                 <p>Moves</p>

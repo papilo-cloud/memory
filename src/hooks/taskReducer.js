@@ -5,7 +5,7 @@ export const INITIALGAME = {
     selectRandom: [],
     theme: 'number',
     moves: 0,
-    stopFlip: false,
+    gameFinish: false,
     gameWon: 0,
     gridSize: '4x4',
     timeElapsed: {
@@ -40,7 +40,8 @@ switch (action.type) {
                 }
             }),
             selectRandom: [...state.selectRandom,  action.data],
-            moves: state.moves++
+            moves: state.moves++,
+            gameFinish: state.data.every(dat => dat.matched)
         }
     }
     case 'isMatched': { 
@@ -73,6 +74,7 @@ switch (action.type) {
         return{
             ...state,
             selectRandom: [],
+            gameFinish: false,
             moves: 0,
             timeElapsed: 0,
             gameWon: 0,
@@ -81,16 +83,37 @@ switch (action.type) {
         }))
         }
     }
+    // case 'isFinished': {
+    //     return{
+    //         ...state,
+    //     }
+    // }
     case 'timePassed': {
-        
+        return{
+            ...state,
+            timeElapsed: {sec:setInterval(() => {
+                state.timeElapsed.sec++
+                if (state.timeElapsed.sec == 60) {
+                    state.timeElapsed.sec = 0
+                }
+            }, 1000), min: state.timeElapsed.sec += 2}
+            // setInterval(() => {
+            //     {sec: state.timeElapsed.sec++}
+            //     if (state.timeElapsed.sec == 60) {
+            //         state.timeElapsed.min++
+            //         state.timeElapsed
+            //     }
+            // }, interval)
+        }
     }
     case 'newGame': {
         return {
             ...state,
             selectRandom: [],
+            gameFinish: false,
             moves: 0,
             gameWon: 0,
-            timeElapsed: 0
+            // timeElapsed: 0
         }
     }
     

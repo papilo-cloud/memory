@@ -129,16 +129,22 @@ button{
 .menu .cont .butn .active{
   background-color: var(--color-arapawa);
 }
+
+
 /* 
 ############################################################################
 ##############################################################
   Modal Styling
  */
  .modal{
-  position: relative;
+  position: fixed;
   width: 100%;
-  min-height: 100vh;
+  left: 0;
+  top: 0;
+  z-index: 1000;
+  min-height: 100%;
   margin: 0;
+  overflow: auto;
   padding: 20px;
   background-color: var(--color-snow);
   display: flex;
@@ -148,7 +154,7 @@ button{
  }
  .modal .end-cont{
   position: relative;
-  width: 100%;
+  width: min(375px, 100%);
   margin: 0;
   padding: 20px;
   background-color: var(--color-white-smoke);
@@ -318,7 +324,7 @@ button{
     width: 100%;
     background-color: var(--color-pattens-blue);
     color: var(--color-tangaroa);
-    border-radius: 8px;
+    border-radius: 4px;
     text-align: center;
   }
   .footer .single-cont .box p{
@@ -434,11 +440,7 @@ button{
   button{
     font-weight: var(--font-weight-nm);
   }
-  .menu .cont, .modal .end-cont{
-    width: 700px;
-    padding: 48px;
-    gap: 38px;
-  }  
+    
   .box .butn{
     gap: 35px;
   }
@@ -457,17 +459,25 @@ button{
     width: 500px;
   }
   .footer .double{
-    width: min(1000px, 100%);
+    width: min(1000px, 100%); 
   }
   .footer .single-cont .box{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    border-radius: 10px;
   }
   .footer .single-cont .box p{
     margin-bottom: 0;
   }
   .footer .single-cont .box .mob{
     display: none;
+  }
+}
+@media screen and (min-width: 1100px) {
+  .menu .cont, .modal .end-cont{
+    width: 700px;
+    padding: 48px;
+    gap: 38px;
   }
 }

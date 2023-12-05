@@ -1,6 +1,8 @@
 import React from 'react'
+import { useTasks } from '../../hooks/useContext'
 
-export const MultiPlayer = () => {
+export const MultiPlayer = ({setGame}) => {
+    const {handleRestart} = useTasks()
   return (
         <div className="end-cont">
             <div className="txt">
@@ -26,10 +28,10 @@ export const MultiPlayer = () => {
                 </div>
             </div>
             <div className="btn">
-                <button className="restart">
+                <button onClick={() => handleRestart()} className="restart">
                     Restart
                 </button>
-                <button>Setup New Game</button>
+                <button onClick={() => setGame(true)}>Setup New Game</button>
             </div>
         </div>
   )

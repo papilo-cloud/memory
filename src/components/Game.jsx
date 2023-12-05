@@ -5,6 +5,7 @@ import { useTasks } from "../hooks/useContext";
 import { Cards } from "./Cards";
 import { Footer } from "./Footer/Footer";
 import { Header } from "./Header/Header";
+import { Modal } from "./modal/Modal";
    
 export const Game= ({setGame}) => {
 
@@ -24,10 +25,11 @@ export const Game= ({setGame}) => {
         }
     }
     }, [grid.selectRandom])
-    
+    console.log(grid.gameFinish)
     return (
         <div className="grid">
             <Header setGame={setGame} />
+                {grid.gameFinish && <Modal setGame={setGame} />}
             <Cards playable={playable} />
             <Footer />
         </div>
