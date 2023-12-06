@@ -18,7 +18,7 @@ export const Menu = () => {
     setTheme(gameState)
     setGame(false)
     newGame()
-    // handleSetTime()
+    handleSetTime()
     setPlayers(playerNum)
     
     }
