@@ -2,10 +2,8 @@ import React from 'react'
 import { useTasks } from '../../hooks/useContext'
 
 export const SinglePlayer = ({setGame}) => {
-    const {grid,handleRestart, handleSetTime} = useTasks()
-    function padMin() {
-        return Math.floor(grid.minutes / 60)
-    }
+    const {grid, padMin, padSec, handleRestart, handleSetTime} = useTasks()
+
   return ( 
         <div className="end-cont">
             <div className="txt">
@@ -15,7 +13,7 @@ export const SinglePlayer = ({setGame}) => {
             <div className="mesg">
                 <div className="time">
                     <p>Time Elapsed</p>
-                    <h3>{padMin()}:{grid.seconds}</h3>
+                    <h3>{padMin()}:{padSec()}</h3>
                 </div>
                 <div className="time">
                     <p>Moves Taken</p>

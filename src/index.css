@@ -175,6 +175,8 @@ button{
  .end-cont .txt p{
   color: var(--color-shakespeare);
   font-weight: var(--font-weight-nm);
+  font-size: .9em;
+  letter-spacing: .6px;
  }
  .end-cont .mesg {
   position: relative;
@@ -193,10 +195,12 @@ button{
  }
  .mesg .time p{
   font-weight: 600;
+  letter-spacing: 1px;
+  font-size: .9em;
   color: var(--color-bermuda-grey);
  }
  .mesg .time h3{
-  color: var(--color-arapawa);
+  color: var(--color-tangaroa);
  }
  .btn {
   position: relative;
@@ -486,5 +490,9 @@ button{
   }
   .modal .end-cont{
     width: 500px;
+  }
+  .end-cont .txt h2{
+    font-size: 2.7em;
+    font-weight: 900;
   }
 }
