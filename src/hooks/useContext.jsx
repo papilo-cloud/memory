@@ -13,6 +13,8 @@ function ProviderContext({children}) {
     const [grid, dispatch] = useReducer(setReducer ,INITIALGAME)
     const [theme, setTheme] = useState('numbers')
     const timeRef = useRef()
+
+   
   
     function myGrid() {
         dispatch({
@@ -54,25 +56,25 @@ function ProviderContext({children}) {
      }
      function  newGame() {
         dispatch({
-            type: 'newGame'
+            type: 'NEWGAME'
         })
      }
      const handleRestart = () => {
         dispatch({
-            type: 'restart'
+            type: 'RESTART'
         })
      }
      const setTime = () => {
         dispatch({
-            type: 'timePassed',
+            type: 'TIME-PASSED',
         })
     }
 
     const handleSetTime = () => {
-        clearInterval(timeRef.current)
-        timeRef.current = setInterval(() => {
+        // clearInterval(timeRef.current)
+        timeRef.current = setInterval(() =>
             setTime()
-        }, 1000);
+        , 1000);
     }
     
     if (grid.gameFinish) {
@@ -90,11 +92,22 @@ function ProviderContext({children}) {
     function padMin() {
         return Math.floor(grid.minutes / 60)
     }
- //  const gameEnd = () => {
-    //     dispatch({
-    //         type: 'isFinished'
-    //     })
-    //  }
+    const setPlayers = (num) => {
+        dispatch({
+            type: 'SET-PLAYERS',
+            players: num
+        })
+    }
+    const nextPlayers = () => {
+        dispatch({
+            type: 'NEXT-PLAYER',
+        })
+    }
+  const gameEnd = () => {
+        dispatch({
+            type: 'GAME-END'
+        })
+     }
    
     return (
         <TaskContext.Provider value={
@@ -113,7 +126,9 @@ function ProviderContext({children}) {
                 handleSetTime,
                 padSec,
                 padMin,
-                // gameEnd
+                setPlayers,
+                nextPlayers,
+                gameEnd
             }
         } >
             {children}

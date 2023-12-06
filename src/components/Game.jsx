@@ -9,13 +9,12 @@ import { Modal } from "./modal/Modal";
    
 export const Game= ({setGame}) => {
 
-     const {grid,onMatched, dismissRandom, handleMatch} = useTasks()
+     const {grid,onMatched, gameEnd, nextPlayers, dismissRandom, handleMatch} = useTasks()
     const playable = grid?.selectRandom?.length == 2
     useEffect(() => {
-        grid.gameFinish = grid.data.every(dat => dat.matched)
-        // if (grid.gameFinish) {
-        //     grid.
-        // }
+        if ( grid.data.every(dat => dat.matched)) {
+            gameEnd()
+        }
     }, [grid.data])
 
     useEffect(() => {
@@ -25,13 +24,14 @@ export const Game= ({setGame}) => {
             dismissRandom()
         } else {
             setTimeout(() => {
+                nextPlayers()
                 dismissRandom()
                 handleMatch()
             }, 1000);
         }
     }
     }, [grid.selectRandom])
-    // console.log(grid.gameFinish)
+    console.log(grid.gameFinish)
     // console.log(grid.data)
     return (
         <div className="grid">
