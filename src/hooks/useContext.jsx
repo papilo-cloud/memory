@@ -2,8 +2,6 @@ import React, { createContext, useReducer, useContext, useState, useEffect, useR
 import data from "../data/data.json";
 import { shuffle } from "lodash";
 import setReducer, { INITIALGAME } from "./taskReducer";
-import useTime from "./useTime";
-
 
 const TaskContext = createContext({})
 
