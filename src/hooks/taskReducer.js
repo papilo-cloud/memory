@@ -1,5 +1,4 @@
 import { shuffle } from 'lodash'
-import data from '../data/data.json'
 export const INITIALGAME = {
     data: [],
     selectRandom: [],
@@ -55,7 +54,6 @@ switch (action.type) {
                     return dats
                 }
             }),
-            // gameFinish: state.data.every(dat => dat.matched),
             playersScore: state.playersScore.map(play => {
                 if (play.id === state.nextPlayer) {
                     let x = 0
@@ -105,7 +103,7 @@ switch (action.type) {
     case 'NEXT-PLAYER': {
         return{
             ...state,
-            nextPlayer: state.nextPlayer > state.playersScore.length ? 1 : state.nextPlayer++,
+            nextPlayer: state.nextPlayer > state.playersScore.length ? 1 : state.nextPlayer+1,
         }
     }
     case 'GAME-END': {
@@ -117,8 +115,8 @@ switch (action.type) {
     case 'TIME-PASSED': {
         return{
             ...state,
-            seconds: state.seconds == 60 ? 0 : state.seconds++,
-            minutes: state.minutes++
+            seconds: state.seconds == 60 ? 0 : state.seconds+1,
+            minutes: state.minutes+1
         }
     }
     case 'NEWGAME': {
