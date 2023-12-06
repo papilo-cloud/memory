@@ -18,11 +18,10 @@ export const Menu = () => {
     setTheme(gameState)
     setGame(false)
     newGame()
-    // handleSetTime()
+    handleSetTime()
     setPlayers(playerNum)
     
     }
-    console.log(grid.one, grid.two, grid.three, grid.four)
   return (
     <div>
     {

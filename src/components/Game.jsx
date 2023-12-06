@@ -32,7 +32,6 @@ export const Game= ({setGame}) => {
         }
     }
     }, [grid.selectRandom])
-    console.log(grid.gameFinish)
     // console.log(grid.data)
     return (
         <div className="grid">
