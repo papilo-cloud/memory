@@ -108,6 +108,11 @@ function ProviderContext({children}) {
             type: 'GAME-END'
         })
      }
+     const handleScore = () => {
+        dispatch({
+            type: 'PLAYERS-SCORE',
+        })
+     }
    
     return (
         <TaskContext.Provider value={
@@ -128,7 +133,8 @@ function ProviderContext({children}) {
                 padMin,
                 setPlayers,
                 nextPlayers,
-                gameEnd
+                gameEnd,
+                handleScore
             }
         } >
             {children}

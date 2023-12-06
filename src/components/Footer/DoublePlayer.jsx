@@ -4,7 +4,6 @@ import { useTasks } from '../../hooks/useContext'
 export const DoublePlayer = () => {
     const {grid} = useTasks()
 
-    console.log(grid.nextPlayer)
     return (
         <div className='double single'>
             <div className="double-cont single-cont">

@@ -9,11 +9,12 @@ import { Modal } from "./modal/Modal";
    
 export const Game= ({setGame}) => {
 
-     const {grid,onMatched, gameEnd, nextPlayers, dismissRandom, handleMatch} = useTasks()
+     const {grid,onMatched, handleScore, gameEnd, nextPlayers, dismissRandom, handleMatch} = useTasks()
     const playable = grid?.selectRandom?.length == 2
     useEffect(() => {
         if ( grid.data.every(dat => dat.matched)) {
             gameEnd()
+            handleScore()
         }
     }, [grid.data])
 
