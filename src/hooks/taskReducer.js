@@ -5,7 +5,11 @@ export const INITIALGAME = {
     theme: 'number',
     moves: 0,
     gameFinish: false,
-    scores: 0,
+    // scores: {one: 0, two: 0, three: 0, four: 0},
+    one: 0,
+    two: 0,
+    three: 0,
+    four: 0,
     gridSize: '4x4',
     seconds: 0,
     minutes: 0,
@@ -40,8 +44,9 @@ switch (action.type) {
                 }
             }),
             selectRandom: [...state.selectRandom,  action.data],
-            moves: state.moves++,
+            moves: state.moves + 1,
             scores: 0,
+       
         }
     }
     case 'isMatched': { 
@@ -54,14 +59,13 @@ switch (action.type) {
                     return dats
                 }
             }),
-            playersScore: state.playersScore.map(play => {
-                if (play.id === state.nextPlayer) {
-                    let x = 0
-                    return {...play, score: x++}
-                } else {
-                    return play
-                }
-            })
+            one: state.nextPlayer == 1 ? state.one + 1 : state.one,
+            two: state.nextPlayer == 2 ? state.two + 1 : state.two,
+            three: state.nextPlayer == 3 ? state.three + 1 : state.three,
+            four: state.nextPlayer == 4 ? state.four + 1 : state.four,
+            
+            
+            // playersScore: 
     }
     }
     case 'dismissFlip': {
@@ -86,8 +90,13 @@ switch (action.type) {
             moves: 0,
             nextPlayer: 1,
             gameWon: 0,
+            playersScore: state.playersScore.slice(0, state.players),
             minutes: 0,
             seconds: 0,
+            one: 0,
+            two: 0,
+            three: 0,
+            four: 0,
             data: shuffle(state.data.map(dats => {
                 return{...dats, matched: false, flipped: false}
         }))
@@ -103,7 +112,7 @@ switch (action.type) {
     case 'NEXT-PLAYER': {
         return{
             ...state,
-            nextPlayer: state.nextPlayer > state.playersScore.length ? 1 : state.nextPlayer+1,
+            nextPlayer: state.nextPlayer >= state.playersScore.length ? 1 : state.nextPlayer+1,
         }
     }
     case 'GAME-END': {
@@ -115,8 +124,15 @@ switch (action.type) {
     case 'TIME-PASSED': {
         return{
             ...state,
-            seconds: state.seconds == 60 ? 0 : state.seconds+1,
-            minutes: state.minutes+1
+            seconds: state.seconds == 60 ? 0 : state.seconds + 1,
+            minutes: state.minutes + 1
+        }
+    }
+    case 'PLAYERS-SCORE':{
+        return{
+            ...state,
+            playersScore: [{id: 1, score: state.one},{id: 2, score: state.two},
+                            {id: 3, score: state.three},{id: 4, score: state.four}].slice(0,state.players)
         }
     }
     case 'NEWGAME': {
@@ -130,7 +146,11 @@ switch (action.type) {
             playersScore: [{id: 1, score: 0},{id: 2, score: 0},{id: 3, score: 0},{id: 4, score: 0}],
             gameWon: 0,
             minutes: 0,
-            seconds: 0
+            seconds: 0,
+            one: 0,
+            two: 0,
+            three: 0,
+            four: 0,
         }
     }
     

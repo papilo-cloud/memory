@@ -3,12 +3,13 @@ import { useTasks } from '../hooks/useContext'
 
 export const Cards = ({playable}) => {
 
-  const {grid,onFlipped, theme} = useTasks()
+  const {grid,onFlipped, handleScore, theme} = useTasks()
 
   function  isFlipCard(params) {
     if (!playable) {
         onFlipped(params)
     }
+    handleScore()
   }
 
   return (
