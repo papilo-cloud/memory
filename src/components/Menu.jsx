@@ -2,10 +2,11 @@ import React, { useRef, useState } from 'react'
 import { useTasks } from '../hooks/useContext'
 import { Game } from './Game'
 export const Menu = () => {
-    const {myGrid, myGrid1, setTheme, grid, newGame, handleSetTime} = useTasks()
+    const {myGrid, myGrid1, setTheme, setPlayers, grid, newGame, handleSetTime} = useTasks()
     const [game, setGame] = useState(true)
     const [gameState, setGameState] = useState('numbers')
     const [gameGrid, setGameGrid] = useState(4)
+    const [playerNum, setPlayerNum] = useState(1)
     const [gamePlayers, setGamePlayers] = useState([1,2,3,4])
 
   function handleStart() {
@@ -17,9 +18,12 @@ export const Menu = () => {
     setTheme(gameState)
     setGame(false)
     newGame()
-    handleSetTime()
+    // handleSetTime()
+    setPlayers(playerNum)
+    
     }
-
+    
+    console.log(grid.playersScore)
   return (
     <div>
     {
@@ -37,7 +41,9 @@ export const Menu = () => {
                 <div className="box">
                     <p>Number of Players</p>
                     <div className="butn">
-                        {gamePlayers.map((numb, i) => <button key={i} className={gamePlayers == 1? 'active': ''} >{numb}</button> )}
+                        {gamePlayers.map((numb, i) => <button key={i} 
+                            onClick={() => setPlayerNum(numb)} className={playerNum == numb? 'active': ''} >{numb}</button> 
+                        )}
                     </div>
                 </div>
                 <div className="box box3">
