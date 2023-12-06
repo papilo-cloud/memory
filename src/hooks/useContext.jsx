@@ -1,4 +1,4 @@
-import React, { createContext, useReducer, useContext, useState, useEffect } from "react";
+import React, { createContext, useReducer, useContext, useState, useEffect, useRef } from "react";
 import data from "../data/data.json";
 import { shuffle } from "lodash";
 import setReducer, { INITIALGAME } from "./taskReducer";
@@ -12,11 +12,9 @@ export const useTasks = () => {
 }
 
 function ProviderContext({children}) {
-    // const [grid, dispatch] = useReducer(setReducer ,[])
     const [grid, dispatch] = useReducer(setReducer ,INITIALGAME)
     const [theme, setTheme] = useState('numbers')
-    const [seconds, setSeconds] = useState(0)
-    // const nam = useTime(false)
+    const timeRef = useRef()
   
     function myGrid() {
         dispatch({
@@ -67,11 +65,21 @@ function ProviderContext({children}) {
         })
      }
      const setTime = () => {
+        dispatch({
+            type: 'timePassed',
+        })
+    }
+
+    const handleSetTime = () => {
+        clearInterval(timeRef.current)
+        timeRef.current = setInterval(() => {
+            setTime()
+        }, 1000);
+    }
     
-            dispatch({
-                type: 'timePassed',
-            })
-}
+    if (grid.gameFinish) {
+        clearInterval(timeRef.current)
+    }
  //  const gameEnd = () => {
     //     dispatch({
     //         type: 'isFinished'
@@ -92,7 +100,7 @@ function ProviderContext({children}) {
                 handleMatch,
                 handleRestart,
                 newGame,
-                setTime,
+                handleSetTime,
                 // gameEnd
             }
         } >

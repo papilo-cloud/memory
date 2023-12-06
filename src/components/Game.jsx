@@ -11,6 +11,12 @@ export const Game= ({setGame}) => {
 
      const {grid,onMatched, dismissRandom, handleMatch} = useTasks()
     const playable = grid?.selectRandom?.length == 2
+    useEffect(() => {
+        grid.gameFinish = grid.data.every(dat => dat.matched)
+        // if (grid.gameFinish) {
+        //     grid.
+        // }
+    }, [grid.data])
 
     useEffect(() => {
     if (playable) {
@@ -25,7 +31,8 @@ export const Game= ({setGame}) => {
         }
     }
     }, [grid.selectRandom])
-    console.log(grid.gameFinish)
+    // console.log(grid.gameFinish)
+    // console.log(grid.data)
     return (
         <div className="grid">
             <Header setGame={setGame} />

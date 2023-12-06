@@ -5,8 +5,8 @@ import { SinglePlayer } from './SinglePlayer'
 export const Modal = ({setGame}) => {
   return (
     <div className='modal'>
-        <MultiPlayer setGame={setGame} />
-        {/* <SinglePlayer /> */}
+        {/* <MultiPlayer setGame={setGame} /> */}
+        <SinglePlayer setGame={setGame} />
     </div>
   ) 
 }

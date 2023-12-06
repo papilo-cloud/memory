@@ -1,8 +1,8 @@
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import { useTasks } from '../hooks/useContext'
 import { Game } from './Game'
 export const Menu = () => {
-    const {myGrid, myGrid1, setTheme, grid, newGame, setTime} = useTasks()
+    const {myGrid, myGrid1, setTheme, grid, newGame, handleSetTime} = useTasks()
     const [game, setGame] = useState(true)
     const [gameState, setGameState] = useState('numbers')
     const [gameGrid, setGameGrid] = useState(4)
@@ -17,11 +17,9 @@ export const Menu = () => {
     setTheme(gameState)
     setGame(false)
     newGame()
-    setInterval(() => {
-        setTime()
-    }, 1000);
-    // grid.selectRandom.length = 0
-  }
+    handleSetTime()
+    }
+
   return (
     <div>
     {

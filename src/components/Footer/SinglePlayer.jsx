@@ -16,7 +16,6 @@ export const SinglePlayer = () => {
   function padMin() {
     return Math.floor(grid.minutes / 60)
   }
-  console.log(grid.seconds)
   return (
     <div className='single'>
         <div className="single-cont">

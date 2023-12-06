@@ -52,6 +52,7 @@ switch (action.type) {
                     return dats
                 }
             }),
+            gameFinish: state.data.every(dat => dat.matched)
     }
     }
     case 'dismissFlip': {
