@@ -312,6 +312,7 @@ button{
  ###########################################################
  footer 
   */
+  
   .footer, .footer .single{
     position: relative;
     width: 100%;
@@ -322,16 +323,39 @@ button{
     justify-content: center;
     align-items: center;
   }
+  .footer{
+    position: relative;
+    padding-bottom: 10px;
+  }
   .footer .single{
     padding: 20px;
   }
-  .footer .single-cont{
+  .footer .single-cont, .footer .double-cont .current{
     display: flex;
     width: 100%;
+    justify-content: center;
+    align-items: center;
     gap: 30px;
+  }
+
+  .footer .double-cont .current{
+    flex-direction: column;
+    gap: 10px;
+    color: var(--color-tangaroa);
+    text-align: center;
+    width: min(240px, 100%);
+  }
+  .footer .double-cont .current .current-p{
+    text-transform: uppercase;
+    font-size: 0.7em;
+    font-weight: var(--font-weight-nm);
+    letter-spacing: 3px;
+    display: none;
   }
   .footer .double-cont{
     gap: 20px;
+    justify-content: center;
+    align-items: flex-start;
   }
   .footer .single-cont .box{
     position: relative;
@@ -341,6 +365,9 @@ button{
     color: var(--color-tangaroa);
     border-radius: 4px;
     text-align: center;
+  }
+  .footer .double-cont .current .box{
+    width: 100%;
   }
   .footer .single-cont .box p{
     color: var(--color-shakespeare);
@@ -440,7 +467,7 @@ button{
     transform: scale(1);
   }
 }
-@media screen and (min-width: 740px) {
+@media screen and (min-width: 760px) {
   .logo .button1{
     display: none;
   }
@@ -462,12 +489,12 @@ button{
     flex-direction: row;
   }
   .cells{
-    width: 440px;
-    height: 440px;
+    width: 470px;
+    height: 470px;
     gap: 12px;
   }
   .cells{
-    gap: 7px;
+    /* gap: 7px; */
   }
   .footer .single{
     width: 500px;
@@ -504,5 +531,8 @@ button{
   .end-cont .txt h2{
     font-size: 2.7em;
     font-weight: 900;
+  }
+  .footer .double-cont .current .current-p{
+    display: block;
   }
 }

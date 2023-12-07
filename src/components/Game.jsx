@@ -14,7 +14,6 @@ export const Game= ({setGame}) => {
     useEffect(() => {
         if ( grid.data.every(dat => dat.matched)) {
             gameEnd()
-            handleScore()
         }
     }, [grid.data])
 
@@ -23,6 +22,7 @@ export const Game= ({setGame}) => {
         if (grid.selectRandom[0].name === grid.selectRandom[1].name) {
             onMatched(grid.selectRandom[0])
             dismissRandom()
+            handleScore()
         } else {
             setTimeout(() => {
                 nextPlayers()

@@ -55,6 +55,7 @@ function ProviderContext({children}) {
         })
      }
      function  newGame() {
+        clearInterval(timeRef.current)
         dispatch({
             type: 'NEWGAME'
         })
@@ -65,6 +66,7 @@ function ProviderContext({children}) {
         })
      }
      const setTime = () => {
+       
         dispatch({
             type: 'TIME-PASSED',
         })
@@ -80,6 +82,7 @@ function ProviderContext({children}) {
     if (grid.gameFinish) {
         clearInterval(timeRef.current)
     }
+    
     function padSec() {
         let sec = 0
         if (grid.seconds < 10) {
