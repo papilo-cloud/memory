@@ -204,7 +204,7 @@
             "flipped": false,
             "matched": false,
             "numb": 8,
-            "number": 40,
+            "number": 26,
             "name": "crow",
             "imgUrl": "../assets/icons/crow-solid.svg"
         },
@@ -212,7 +212,7 @@
             "flipped": false,
             "matched": false,
             "numb": 9,
-            "number": 17,
+            "number": 27,
             "name": "fish",
             "imgUrl": "../assets/icons/fish-solid.svg"
         },
@@ -284,7 +284,7 @@
             "flipped": false,
             "matched": false,
             "numb": 18,
-            "number": 37,
+            "number": 36,
             "name": "tree",
             "imgUrl": "../assets/icons/tree-solid.svg"
         }
