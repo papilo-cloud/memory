@@ -38,7 +38,7 @@ export const Game= ({setGame}) => {
             <Header setGame={setGame} />
                 {grid.gameFinish && <Modal setGame={setGame} />}
             <Cards playable={playable} />
-            <Footer />
+            <Footer /> 
         </div>
     )
 }
