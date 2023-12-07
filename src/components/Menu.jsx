@@ -22,7 +22,6 @@ export const Menu = () => {
     setPlayers(playerNum)
     
     }
-    console.log(grid.seconds)
   return (
     <div>
     {
