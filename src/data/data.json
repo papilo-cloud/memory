@@ -256,7 +256,7 @@
             "name": "meteor",
             "imgUrl": "../assets/icons/meteor-solid.svg"
         },
-        {
+        {                                                         
             "flipped": false,
             "matched": false,
             "numb": 15,
