@@ -6,6 +6,8 @@ import { Cards } from "./Cards";
 import { Footer } from "./Footer/Footer";
 import { Header } from "./Header/Header";
 import { Modal } from "./modal/Modal";
+import annui from '../assets/Audio/anniu.mp3'
+import win from '../assets/Audio/win.mp3'
    
 export const Game= ({setGame}) => {
 
@@ -18,19 +20,23 @@ export const Game= ({setGame}) => {
     }, [grid.data])
 
     useEffect(() => {
-    if (playable) {
-        if (grid.selectRandom[0].name === grid.selectRandom[1].name) {
-            onMatched(grid.selectRandom[0])
-            dismissRandom()
-            handleScore()
-        } else {
-            setTimeout(() => {
-                nextPlayers()
+        const audio = new Audio(annui)
+        const audio1 = new Audio(win)
+        if (playable) {
+            if (grid.selectRandom[0].name === grid.selectRandom[1].name) {
+                onMatched(grid.selectRandom[0])
                 dismissRandom()
-                handleMatch()
-            }, 1000);
+                handleScore()
+                audio1.play()
+            } else {
+                setTimeout(() => {
+                    nextPlayers()
+                    dismissRandom()
+                    handleMatch()
+                    audio.play()
+                }, 1000);
+            }
         }
-    }
     }, [grid.selectRandom])
     // console.log(grid.data)
     return (

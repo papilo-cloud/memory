@@ -1,6 +1,7 @@
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { useTasks } from '../hooks/useContext'
 import { Game } from './Game'
+import buttonSound from '../assets/Audio/button.mp3'
 export const Menu = () => {
     const {myGrid, myGrid1, setTheme, setPlayers, grid, newGame, handleSetTime} = useTasks()
     const [game, setGame] = useState(true)
@@ -22,6 +23,12 @@ export const Menu = () => {
     setPlayers(playerNum)
     
     }
+    useEffect(() => {
+        const audio = new Audio(buttonSound)
+        const butn = document.querySelectorAll('button')
+        butn.forEach(butns => butns.addEventListener('click',() => audio.play()))
+        return () => butn.forEach(butns => butns.removeEventListener('click',() => audio.play()))
+    }, [game])
   return (
     <div>
     {
